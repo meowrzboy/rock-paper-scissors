@@ -1,12 +1,43 @@
-# React + Vite
+# README
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## 🪝Git хуки в проекте
 
-Currently, two official plugins are available:
+В этом репозитории настроены git-хуки через [Husky](https://typicode.github.io/husky/get-started.html). Они автоматически запускают проверки перед коммитом:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- ✅ [ESLint](https://eslint.org/docs/latest/use/getting-started) — проверка качества кода JavaScript
+- ✅ [Prettier](https://prettier.io/docs/) — автоформатирование
 
-## Expanding the ESLint configuration
+**Что происходит при коммите**
+Перед каждым коммитом автоматически запускаются команды:
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+```bash
+npx pretty-quick --staged # не вызывает ошибок, молча форматирует код
+npm run lint # может показывать ошибки
+```
+
+Если есть ошибки, коммит будет отклонён, и ты увидишь сообщения об ошибках в терминале или IDE.
+
+### ⚠️ Если коммит не проходит
+
+- Запусти вручную:
+
+```bash
+npm run lint
+```
+
+- ESLint сообщит, в чём проблема
+  ![img.png](docs/img.png)
+
+1. Путь до файла, в котором есть проблемы
+2. Точная строка в файле с ошибкой. Если запускаешь в IDE, то можешь нажать на нее и файл откроется в нужном месте
+3. Краткое описание проблемы. Если не понятно - используй переводчик, никто не осудит
+4. Название правила, которое вызывает ошибку
+
+### Как решать?
+
+Если после просмотра кода и краткого описания все еще не понятно что нужно делать - не беда.
+
+1. Вбивай в гугл запрос `eslint [название правила]`, типа `eslint react-hooks/exhaustive-deps` и смотри ответы
+2. Спроси у ChatGPT.
+   1. Скопируй проблемный участок кода
+   2. Используй промпт: "В этом участке кода на строке X возникает ошибка eslint [Y], как поправить?"
