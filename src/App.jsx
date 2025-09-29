@@ -1,8 +1,11 @@
-import BackgroundContainer from "./components/BackgroundContainer";
+import ChooseMoveBlock from "./components/ChooseMoveBlock";
 import Container from "./components/Container";
+import GameContainer from "./components/GameContainer";
 import GameTitle from "./components/GameTitle";
 import GameplayBlock from "./components/GameplayBlock";
 import ScoreCounter from "./components/ScoreCounter";
+import StartScreen from "./components/StartScreen";
+import ToggleTheme from "./components/ToggleTheme";
 import WinnerBlock from "./components/WinnerBlock";
 
 import "./App.css";
@@ -10,14 +13,16 @@ import "./App.css";
 export default function App() {
   return (
     <>
-      <BackgroundContainer>
-        <Container>
+      <Container>
+        <ToggleTheme />
+        <GameContainer>
           <GameTitle />
           <ScoreCounter />
           <WinnerBlock />
           <GameplayBlock />
-        </Container>
-      </BackgroundContainer>
+          <ChooseMoveBlock />
+        </GameContainer>
+      </Container>
     </>
   );
 }
