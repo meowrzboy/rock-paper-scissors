@@ -1,10 +1,8 @@
-import ChooseMoveBlock from "./components/ChooseMoveBlock";
 import Container from "./components/Container";
 import GameContainer from "./components/GameContainer";
+import GameHandler from "./components/GameHandler";
 import GameTitle from "./components/GameTitle";
-import GameplayBlock from "./components/GameplayBlock";
 import ScoreCounter from "./components/ScoreCounter";
-import StartScreen from "./components/StartScreen";
 import ToggleTheme from "./components/ToggleTheme";
 import WinnerBlock from "./components/WinnerBlock";
 
@@ -19,8 +17,9 @@ export default function App() {
           <GameTitle />
           <ScoreCounter />
           <WinnerBlock />
-          <GameplayBlock />
-          <ChooseMoveBlock />
+          <GameHandler />
+          {/* <GameplayBlock />
+          <ChooseMoveBlock /> */}
         </GameContainer>
       </Container>
     </>
