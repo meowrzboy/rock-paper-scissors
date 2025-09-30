@@ -2,10 +2,11 @@ import { useState } from "react";
 
 import ChooseMoveBlock from "./ChooseMoveBlock";
 import GameplayBlock from "./GameplayBlock";
+import ScoreCounter from "./ScoreCounter";
 
 import "../App.css";
 
-export default function GameHandler({ winnerFinder }) {
+export default function GameHandler() {
   const [playerMove, setPlayerMove] = useState(null);
   const [computerMove, setComputerMove] = useState(null);
   const getComputerMove = () => {
@@ -17,20 +18,18 @@ export default function GameHandler({ winnerFinder }) {
   const handleRock = () => {
     setPlayerMove("rock");
     setComputerMove(getComputerMove());
-    winnerFinder({ playerMove, computerMove });
   };
   const handlePaper = () => {
     setPlayerMove("paper");
     setComputerMove(getComputerMove());
-    winnerFinder({ playerMove, computerMove });
   };
   const handleScissors = () => {
     setPlayerMove("scissors");
     setComputerMove(getComputerMove());
-    winnerFinder({ playerMove, computerMove });
   };
   return (
     <div className="flex gap-[32px] flex-col">
+      <ScoreCounter playerMove={playerMove} computerMove={computerMove} />
       <GameplayBlock playerMove={playerMove} computerMove={computerMove} />
       <ChooseMoveBlock
         choseRock={handleRock}
