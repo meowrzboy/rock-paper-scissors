@@ -1,12 +1,15 @@
+import { connect } from "react-redux";
+
+import {
+  setComputerMove,
+  setPlayerMove,
+  updateScores,
+} from "../store/gameStore";
 import Button from "./Button";
 
 import "../App.css";
 
-export default function ChooseMoveBlock({
-  choseRock,
-  chosePaper,
-  choseScissors,
-}) {
+function ChooseMoveBlock({ choseRock, chosePaper, choseScissors }) {
   return (
     <div className="flex flex-col gap-[24px]">
       <div className="font-display text-[14px] font-medium text-[#353535] text-center">
@@ -20,3 +23,23 @@ export default function ChooseMoveBlock({
     </div>
   );
 }
+
+const mapDispatchToProps = (dispatch) => {
+  const getComputerMove = () => {
+    const moves = ["rock", "paper", "scissors"];
+    const randomIndex = Math.floor(Math.random() * moves.length);
+    return moves[randomIndex];
+  };
+  const handleMove = (playerMove) => {
+    const computerMove = getComputerMove();
+    dispatch(setPlayerMove(playerMove));
+    dispatch(setComputerMove(computerMove));
+    dispatch(updateScores(playerMove, computerMove));
+  };
+  return {
+    choseRock: () => handleMove("rock"),
+    chosePaper: () => handleMove("paper"),
+    choseScissors: () => handleMove("scissors"),
+  };
+};
+export default connect(null, mapDispatchToProps)(ChooseMoveBlock);

@@ -1,10 +1,12 @@
+import { connect } from "react-redux";
+
 import paper_icon from "../assets/paper_icon.svg";
 import rock_icon1 from "../assets/rock_icon1.svg";
 import scissors_icon1 from "../assets/scissors_icon1.svg";
 
 import "../App.css";
 
-export default function GameplayBlock({ playerMove, computerMove }) {
+function GameplayBlock({ playerMove, computerMove }) {
   const getMoveIcon = (move) => {
     switch (move) {
       case "rock":
@@ -32,3 +34,11 @@ export default function GameplayBlock({ playerMove, computerMove }) {
     </div>
   );
 }
+
+const mapStateToProps = (state) => {
+  return {
+    playerMove: state.playerMove,
+    computerMove: state.computerMove,
+  };
+};
+export default connect(mapStateToProps)(GameplayBlock);
