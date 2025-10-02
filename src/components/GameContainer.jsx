@@ -16,7 +16,7 @@ export default function GameContainer({ children }) {
       {showStartScreen ? (
         <StartScreen onStartGame={handleStartGame} />
       ) : (
-        <div className="flex gap-[32px] flex-col justify-center items-center">
+        <div className="flex w-max gap-[32px] flex-col justify-center items-center">
           {children}
         </div>
       )}

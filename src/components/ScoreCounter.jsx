@@ -9,7 +9,7 @@ function ScoreCounter({ playerScore, computerScore, resetGame }) {
   const { isDark } = useTheme();
   return (
     <div
-      className={`flex gap-[16px] font-display flex-col justify-center ${isDark ? "text-white" : "text-black"}`}
+      className={`w-full flex gap-[16px] font-display flex-col justify-center ${isDark ? "text-white" : "text-black"}`}
     >
       <button
         onClick={resetGame}
@@ -17,7 +17,7 @@ function ScoreCounter({ playerScore, computerScore, resetGame }) {
       >
         RESET THE SCORE
       </button>
-      <div className="text-[14px] gap-[143px] font-semibold flex justify-between">
+      <div className="text-[14px] font-semibold flex justify-around">
         <div>PLAYER SCORE: {playerScore}</div>
         <div>COMPUTER SCORE: {computerScore}</div>
       </div>

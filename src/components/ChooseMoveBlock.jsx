@@ -13,7 +13,7 @@ import "../App.css";
 function ChooseMoveBlock({ choseRock, chosePaper, choseScissors }) {
   const { isDark } = useTheme();
   return (
-    <div className="flex flex-col gap-[24px]">
+    <div className="flex flex-col gap-[24px] w-max">
       <div
         className={`font-display text-[14px] font-medium text-center ${isDark ? "text-[#BEBFD1]" : "text-[#353535]"}`}
       >
