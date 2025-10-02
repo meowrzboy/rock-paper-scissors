@@ -1,5 +1,6 @@
 import { connect } from "react-redux";
 
+import { useTheme } from "../contexts/ThemeContext";
 import {
   setComputerMove,
   setPlayerMove,
@@ -10,9 +11,12 @@ import Button from "./Button";
 import "../App.css";
 
 function ChooseMoveBlock({ choseRock, chosePaper, choseScissors }) {
+  const { isDark } = useTheme();
   return (
     <div className="flex flex-col gap-[24px]">
-      <div className="font-display text-[14px] font-medium text-[#353535] text-center">
+      <div
+        className={`font-display text-[14px] font-medium text-center ${isDark ? "text-[#BEBFD1]" : "text-[#353535]"}`}
+      >
         Choose your move, rock paper or scissors?
       </div>
       <div className="flex gap-[48px]">

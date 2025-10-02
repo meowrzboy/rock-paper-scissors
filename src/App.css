@@ -4,7 +4,11 @@
   --font-display: "Inter", sans-serif;
 }
 
-body {
+html[data-theme="light"] body {
   min-height: 100vh;
   background: #d9d9d9;
+}
+html[data-theme="dark"] body {
+  min-height: 100vh;
+  background: #353535;
 }

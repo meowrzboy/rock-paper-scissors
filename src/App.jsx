@@ -6,22 +6,25 @@ import GameplayBlock from "./components/GameplayBlock";
 import ScoreCounter from "./components/ScoreCounter";
 import ToggleTheme from "./components/ToggleTheme";
 import WinnerBlock from "./components/WinnerBlock";
+import { ThemeProvider } from "./contexts/ThemeContext";
 
 import "./App.css";
 
 export default function App() {
   return (
     <>
-      <Container>
-        <ToggleTheme />
-        <GameContainer>
-          <GameTitle />
-          <ScoreCounter />
-          <WinnerBlock />
-          <GameplayBlock />
-          <ChooseMoveBlock />
-        </GameContainer>
-      </Container>
+      <ThemeProvider>
+        <Container>
+          <ToggleTheme />
+          <GameContainer>
+            <GameTitle />
+            <ScoreCounter />
+            <WinnerBlock />
+            <GameplayBlock />
+            <ChooseMoveBlock />
+          </GameContainer>
+        </Container>
+      </ThemeProvider>
     </>
   );
 }

@@ -1,12 +1,16 @@
 import { connect } from "react-redux";
 
+import { useTheme } from "../contexts/ThemeContext";
 import { resetGame } from "../store/gameStore";
 
 import "../App.css";
 
 function ScoreCounter({ playerScore, computerScore, resetGame }) {
+  const { isDark } = useTheme();
   return (
-    <div className="flex gap-[16px] font-display text-black flex-col justify-center">
+    <div
+      className={`flex gap-[16px] font-display flex-col justify-center ${isDark ? "text-white" : "text-black"}`}
+    >
       <button
         onClick={resetGame}
         className="cursor-pointer text-[20px] font-bold text-center"

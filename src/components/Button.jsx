@@ -1,10 +1,13 @@
+import { useTheme } from "../contexts/ThemeContext";
+
 import "../App.css";
 
 export default function Button({ children, onClick }) {
+  const { isDark } = useTheme();
   return (
     <button
       onClick={onClick}
-      className="cursor-pointer w-[170px] h-[60px] rounded-[14px] bg-[#DF2E38] flex justify-center items-center"
+      className={`cursor-pointer w-[170px] h-[60px] rounded-[14px] flex justify-center items-center ${isDark ? "bg-[#2751A3]" : "bg-[#DF2E38]"}`}
     >
       <div className="font-display font-bold text-[25px] text-white">
         {children}
