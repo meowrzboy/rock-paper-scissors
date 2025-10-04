@@ -19,7 +19,7 @@ function ChooseMoveBlock({ choseRock, chosePaper, choseScissors }) {
       >
         Choose your move, rock paper or scissors?
       </div>
-      <div className="flex justify-between">
+      <div className="flex justify-between gap-[48px]">
         <Button onClick={choseRock}>ROCK</Button>
         <Button onClick={chosePaper}>PAPER</Button>
         <Button onClick={choseScissors}>SCISSORS</Button>
