@@ -13,13 +13,13 @@ import "../App.css";
 function ChooseMoveBlock({ choseRock, chosePaper, choseScissors }) {
   const { isDark } = useTheme();
   return (
-    <div className="flex flex-col gap-[24px] w-max">
+    <div className="flex flex-col gap-[24px] justify-between w-full max-w-[621px]">
       <div
         className={`font-display text-[14px] font-medium text-center ${isDark ? "text-[#BEBFD1]" : "text-[#353535]"}`}
       >
         Choose your move, rock paper or scissors?
       </div>
-      <div className="flex gap-[48px]">
+      <div className="flex justify-between">
         <Button onClick={choseRock}>ROCK</Button>
         <Button onClick={chosePaper}>PAPER</Button>
         <Button onClick={choseScissors}>SCISSORS</Button>
